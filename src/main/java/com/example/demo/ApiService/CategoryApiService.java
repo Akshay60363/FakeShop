@@ -13,15 +13,15 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 @Service
-public class ApiService implements IApiService{
+public class CategoryApiService implements IApCategoryiService{
 	@Value("${apiUrl}")
 	private String apiUrl;
-	
 	private final OkHttpClient client = new OkHttpClient();
+
 	private final ObjectMapper objectMapper = new ObjectMapper();
 	@Override
 	public List<String> makeGetRequest() throws IOException {
-	    String fullUrl = apiUrl + "/products/category"; // if you're using base URL
+	    String fullUrl = apiUrl + "/products/category";
 	    Request request = new Request.Builder().url(fullUrl).build();
 
 	    try (Response response = client.newCall(request).execute()) {
